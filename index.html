@@ -5,24 +5,11 @@
 </head>
 <body>
     <form>
-        <button type="button" onclick="getQuestions()">Get Questions!</button>
     </form>
     <br/> <br/> <br/>
-    <div id="response"></div>
 
     <script>
         function getQuestions() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var allQs = JSON.parse(this.responseText);
-                    document.getElementById("response").innerHTML = allQs.map(function(question) {
-                        return question.question;
-                        }).join('</br> ');
-                }
-            };
-            xhttp.open("GET", "https://kwest.azurewebsites.net/questions", true);
-            xhttp.send();
         }
     </script>
 </body>
